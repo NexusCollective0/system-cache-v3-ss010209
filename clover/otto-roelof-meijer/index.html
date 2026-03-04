@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASSET DOSSIER</title>
+    <style>
+        body { background: #000; color: #00ff41; font-family: 'Courier New'; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        #gate { text-align: center; border: 1px solid #00ff41; padding: 40px; }
+        #content { display: none; width: 80%; max-width: 700px; border: 1px solid #00ff41; padding: 30px; }
+        input { background: transparent; border: none; border-bottom: 2px solid #00ff41; color: #00ff41; text-align: center; font-size: 1.5rem; outline: none; }
+    </style>
+</head>
+<body>
+
+    <div id="gate">
+        <h3>SECURE ACCESS REQUIRED</h3>
+        <p>ENTER ID CODE:</p>
+        <input type="password" id="key" onkeypress="if(event.key==='Enter') verify()">
+    </div>
+
+    <div id="content">
+        <h1>ASSET: OTTO ROELOF MEIJER</h1>
+        <p><strong>RANK:</strong> CLOVER #13</p>
+        <p><strong>POWER:</strong> AXIOM MANIFESTATION</p>
+        <hr>
+        <p><strong>BIO:</strong> The Stabilizer. Injected with early-stage medical nano-drones. He can survive wounds that would kill others, though the drones consume his caloric intake at a dangerous rate.</p>
+        <button onclick="location.reload()" style="background:#00ff41; color:#000; border:none; padding:10px;">PURGE SESSION</button>
+    </div>
+
+    <script>
+        function verify() {
+            const code = document.getElementById('key').value.toUpperCase();
+            if(code === "O-13SC/C") { // <--- CHANGE THIS FOR EACH MEMBER
+                document.getElementById('gate').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert("ACCESS DENIED.");
+            }
+        }
+    </script>
+</body>
+</html>
